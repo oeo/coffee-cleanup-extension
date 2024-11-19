@@ -1,0 +1,52 @@
+{
+  "name": "coffee-cleanup",
+  "displayName": "Adam's Little Helper",
+  "description": "Removes semicolons and trailing whitespace from CoffeeScript files on save",
+  "publisher": "taky",
+  "version": "1.0.0",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "CoffeeScript Cleanup",
+      "properties": {
+        "coffeeCleanup.removeSemicolons": {
+          "type": "boolean",
+          "default": true,
+          "description": "Remove semicolons from CoffeeScript files on save"
+        },
+        "coffeeCleanup.removeTrailingWhitespace": {
+          "type": "boolean",
+          "default": true,
+          "description": "Remove trailing whitespace from CoffeeScript files on save"
+        }
+      }
+    }
+  },
+  "activationEvents": [
+    "onLanguage:coffeescript"
+  ],
+  "main": "./dist/extension.js",
+  "scripts": {
+    "vscode:prepublish": "yarn compile",
+    "compile": "webpack --mode production",
+    "watch": "webpack --watch",
+    "package": "vsce package",
+    "vsix": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.95.0",
+    "@types/webpack": "^5.28.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.4",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "@vscode/vsce": "^2.22.0"
+  }
+}
